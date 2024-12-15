@@ -1,0 +1,129 @@
+<header class="header border-bottom">
+  <div class="top-header bg-light py-1">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <p class="mb-0">Super Value Deals - Save more with coupons
+          </p>
+        </div>
+        <div class="col-lg-6 text-end">
+          <div class="dropdown">
+            <a class="text-reset text-decoration-none dropdown-toggle" *ngIf="langName == 'English'"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="./assets/images/gb.svg" alt="" class="me-1" width="16">
+              English
+            </a>
+            <a class="text-reset text-decoration-none dropdown-toggle" *ngIf="langName == 'Arabic'"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="./assets/images/eg.svg" alt="" class="me-1" width="16">
+             Arabic
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item"  (click)="langName='English'">              <img src="./assets/images/gb.svg" alt="" class="me-1" width="16">
+                English</a></li>
+              <li><a class="dropdown-item"  (click)="langName='Arabic'">              <img src="./assets/images/eg.svg" alt="" class="me-1" width="16">
+                 Arabic</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="header-branding py-4 pb-3">
+    <div class="container">
+      <div class="row ">
+        <div class="col-lg-3 col-sm-6 mb-3 mb-md-0">
+          <a routerLink="Home" class="navbar-brand">
+            <img src="./assets/images/freshcart-logo.svg" alt="Logo">
+          </a>
+        </div>
+        <div class="col-lg-6 d-none d-lg-block">
+          <div class="input-group ">
+            <input type="search" class="form-control" id="searchInput" placeholder="Search for products">
+            <span class="input-group-text" id="basic-addon2">
+                            <i data-feather="search" style="width: 20px; height: 20px;"></i>
+            </span>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6 text-end ">
+          <ul class="nav justify-content-end align-items-center">
+            <li class="nav-item">
+              <a class="nav-link position-relative text-body-tertiary"  >
+                <i data-feather="heart"></i>
+
+                <!-- <i class="fa-regular fa-heart  fs-4">  </i> -->
+                <span class="badge bg-success position-absolute top-0 end-0 rounded-circle">5</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-body-tertiary" >
+                <i data-feather="user"></i>
+              </a>
+            </li>
+            <li class="nav-item" *ngIf="isLogin">
+              <a class="nav-link text-body-tertiary rounded-circle " title="User Name">
+                <img src="./assets/images/man.png" alt="" class="rounded-circle border border-success border-2 object-fit-cover" width="40" height="40">
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link position-relative text-body-tertiary" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                <i data-feather="shopping-bag"></i>
+
+                <!-- <i class="fa-solid fa-bag-shopping fs-4"></i> -->
+                <span class="badge bg-success position-absolute top-0 end-0 rounded-circle">5</span>
+
+              </a>
+            </li>
+            <li class="nav-item d-block d-lg-none">
+              <a class="nav-link  text-success" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+                <i data-feather="sidebar"></i>
+
+              </a>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-navbar></app-navbar>
+
+</header>
+
+
+<div class="offcanvas  offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel" style="width: 600px;">
+  <div class="offcanvas-header border-bottom">
+    <h2 class="offcanvas-title" id="offcanvasRightLabel">Shop Cart
+    </h2>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="card mb-3 border-0 border-bottom" >
+      <div class="row g-0 align-items-center">
+        <div class="col-7 g-0 row m-0 align-items-center">
+          <div class="col-md-3">
+            <img src="./assets/images/products/product-img-1.jpg" class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-9">
+            <div class="card-body">
+              <h6 class="card-title mb-0">Haldiram's Sev Bhujia</h6>
+              <p class="card-text text-secondary mb-0">.98 / lb</p>
+              <a  class="text-danger fs-6"><i data-feather="trash-2" class="me-1 " style="width: 16px;height: 16px;"></i> Remove</a>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-5 row m-0 g-0 align-items-center">
+          <div class="col-6 text-center"><div class="input-group input-group-sm mb-3">
+            <span class="input-group-text"><i data-feather='plus' style="width: 15px; height: 15;"></i> </span>
+            <input type="text" class="form-control text-center fw-bold" value="1" readonly disabled>
+            <span class="input-group-text"><i data-feather='minus' style="width: 15px; height: 15;"></i> </span>
+          </div></div>
+          <div class="col-6 text-center"><h5>$15.00</h5></div>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex justify-content-between">
+      <a href="" class="btn btn-success">Continue Shopping</a>
+      <a href="" class="btn btn-outline-secondary"> Rest Cart</a>
+    </div>
+  </div>
+</div>
