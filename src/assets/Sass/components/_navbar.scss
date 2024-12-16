@@ -1,6 +1,6 @@
 @media (min-width:990px)  {
   .navbar-list-top {
-    position: static;
+    position: relative;
     visibility: visible;
     width: 100% !important;
     transform: translateX(0) !important;
@@ -8,6 +8,7 @@
     .offcanvas-body {
       width: 100%;
       padding: 0;
+      overflow-y: unset;
       .navbar-nav {
         flex-direction: row;
         align-items: center;
@@ -34,14 +35,7 @@
     }
   }
 
-@media (min-width: 1200px) and (max-width: 1400px) {
-  .navbar-list-top {
-    background-color: #f00 !important;
-    .navbar-nav {
-      flex-direction: column !important;
-    }
-  }
-}
+
   .navbar-list-top {
     .navbar-nav {
       .nav-item  {

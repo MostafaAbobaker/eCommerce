@@ -14,6 +14,10 @@ import { BrandsComponent } from './Component/brands/brands.component';
 import { NotFoundComponent } from './Shared/Component/not-found/not-found.component';
 import { LayoutComponent } from './Component/layout/layout.component';
 import { CategoriesCardComponent } from './Component/categories-card/categories-card.component';
+import { LoginComponent } from './Authorisation/login/login.component';
+import { RegisterComponent } from './Authorisation/register/register.component';
+import { SignupOldSchoolComponent } from './Authorisation/signup-old-school/signup-old-school.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,11 +32,15 @@ import { CategoriesCardComponent } from './Component/categories-card/categories-
     BrandsComponent,
     NotFoundComponent,
     LayoutComponent,
-    CategoriesCardComponent
+    CategoriesCardComponent,
+    LoginComponent,
+    RegisterComponent,
+    SignupOldSchoolComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
