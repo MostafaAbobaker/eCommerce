@@ -7,9 +7,10 @@ import { CategoriesComponent } from './Component/categories/categories.component
 import { ProductsComponent } from './Component/products/products.component';
 import { NotFoundComponent } from './Shared/Component/not-found/not-found.component';
 import { LayoutComponent } from './Component/layout/layout.component';
-import { LoginComponent } from './Authorisation/login/login.component';
-import { RegisterComponent } from './Authorisation/register/register.component';
-import { SignupOldSchoolComponent } from './Authorisation/signup-old-school/signup-old-school.component';
+import { LoginComponent } from './Authorisation/Components/login/login.component';
+import { RegisterComponent } from './Authorisation/Components/register/register.component';
+import { SignupOldSchoolComponent } from './Authorisation/Components/signup-old-school/signup-old-school.component';
+import { ForgotPasswordComponent } from './Authorisation/Components/forgot-password/forgot-password.component';
 
 const routes: Routes = [
 
@@ -23,6 +24,7 @@ const routes: Routes = [
     { path: 'Login', component:LoginComponent},
     { path: 'Register', component:RegisterComponent},
     { path: 'Signup-oldSchool', component:SignupOldSchoolComponent},
+    { path: 'Forgot-Password', component:ForgotPasswordComponent},
   ]},
 
   {path:'**' , component:NotFoundComponent}

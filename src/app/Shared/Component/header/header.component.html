@@ -44,27 +44,33 @@
           </div>
         </div>
         <div class="col-lg-3 col-sm-6 text-end ">
-          <ul class="nav justify-content-end align-items-center">
+          <ul class="nav justify-content-end align-items-center position-relative z-3">
             <li class="nav-item">
-              <a class="nav-link position-relative text-body-tertiary"  >
+              <a class="nav-link position-relative text-body-tertiary" title="favorites" >
                 <i data-feather="heart"></i>
 
                 <!-- <i class="fa-regular fa-heart  fs-4">  </i> -->
                 <span class="badge bg-success position-absolute top-0 end-0 rounded-circle">5</span>
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link text-body-tertiary" routerLink="Register">
-                <i data-feather="user"></i>
+            <li class="nav-item" *ngIf="!isLogin">
+              <a class="nav-link text-body-tertiary" routerLink="Login" title="Login">
+                <i class="fa-regular fa-user fs-4"></i>
               </a>
             </li>
-            <li class="nav-item" *ngIf="isLogin">
-              <a class="nav-link text-body-tertiary rounded-circle " title="User Name">
+            <li class="nav-item dropdown" *ngIf="isLogin">
+              <a class="nav-link text-body-tertiary rounded-circle " title="User Name" data-bs-toggle="dropdown" aria-expanded="false">
                 <img src="./assets/images/man.png" alt="" class="rounded-circle border border-success border-2 object-fit-cover" width="40" height="40">
               </a>
+              <ul class="dropdown-menu z-3">
+                <li><a class="dropdown-item" >Action</a></li>
+                <li><a class="dropdown-item" >Another action</a></li>
+                <li><a class="dropdown-item" (click)="logOut()">Sign Out</a></li>
+              </ul>
             </li>
+
             <li class="nav-item">
-              <a class="nav-link position-relative text-body-tertiary" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+              <a class="nav-link position-relative text-body-tertiary" title="card" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
                 <i data-feather="shopping-bag"></i>
 
                 <!-- <i class="fa-solid fa-bag-shopping fs-4"></i> -->

@@ -1,0 +1,40 @@
+<section class="login py-5 my-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <img src="./assets/images/signin-g.svg" alt="">
+      </div>
+      <div class="col-lg-6">
+        <h2 class="fw-bold">Sign in to FreshCart        </h2>
+        <p>Welcome back to FreshCart! Enter your email to get started.
+        </p>
+        <div class="alert alert-danger" role="alert" *ngIf="apiErrorMassage">
+          {{apiErrorMassage}}
+        </div>
+        <form  class="form p-0 w-100" (ngSubmit)="login()" [formGroup]="loginForm">
+          <div class="form-floating mb-3">
+            <input type="email" class="form-control" formControlName="email" id="floatingInput" placeholder="name@example.com">
+            <label for="floatingInput">Email address</label>
+
+          </div>
+          <div class="form-floating mb-3">
+            <input [type]="typePassword? 'password': 'text'" formControlName="password" class="form-control" id="floatingPassword" placeholder="Password">
+            <label for="floatingPassword">Password</label>
+            <a class="text-dark position-absolute end-0 top-50 translate-middle-y me-2"
+            (click)="typePassword = !typePassword">
+              <i class="fa-regular" [class]="typePassword? 'fa-eye-slash':'fa-eye'"></i>
+            </a>
+          </div>
+          <p class="text-end mb-3">
+            Forgot password?
+            <a class="text-success fw-bold" routerLink="/Forgot-Password">Reset It</a>
+          </p>
+          <button class="btn btn-success btn-lg w-100 mb-3" [disabled]="loginForm.invalid">Sign In</button>
+          <p>Don’t have an account?
+            <a class="text-success fw-bold" routerLink="/Register">Sign Up</a>
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

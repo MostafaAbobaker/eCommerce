@@ -14,10 +14,12 @@ import { BrandsComponent } from './Component/brands/brands.component';
 import { NotFoundComponent } from './Shared/Component/not-found/not-found.component';
 import { LayoutComponent } from './Component/layout/layout.component';
 import { CategoriesCardComponent } from './Component/categories-card/categories-card.component';
-import { LoginComponent } from './Authorisation/login/login.component';
-import { RegisterComponent } from './Authorisation/register/register.component';
-import { SignupOldSchoolComponent } from './Authorisation/signup-old-school/signup-old-school.component';
-import { FormsModule } from '@angular/forms';
+import { LoginComponent } from './Authorisation/Components/login/login.component';
+import { RegisterComponent } from './Authorisation/Components/register/register.component';
+import { SignupOldSchoolComponent } from './Authorisation/Components/signup-old-school/signup-old-school.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from  '@angular/common/http';
+import { ForgotPasswordComponent } from './Authorisation/Components/forgot-password/forgot-password.component';
 
 @NgModule({
   declarations: [
@@ -35,12 +37,15 @@ import { FormsModule } from '@angular/forms';
     CategoriesCardComponent,
     LoginComponent,
     RegisterComponent,
-    SignupOldSchoolComponent
+    SignupOldSchoolComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
