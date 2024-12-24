@@ -20,6 +20,8 @@ import { SignupOldSchoolComponent } from './Authorisation/Components/signup-old-
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from  '@angular/common/http';
 import { ForgotPasswordComponent } from './Authorisation/Components/forgot-password/forgot-password.component';
+import { VerifyCodeComponent } from './Authorisation/Components/verify-code/verify-code.component';
+import { ResetPasswordComponent } from './Authorisation/Components/reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { ForgotPasswordComponent } from './Authorisation/Components/forgot-passw
     LoginComponent,
     RegisterComponent,
     SignupOldSchoolComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    VerifyCodeComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,

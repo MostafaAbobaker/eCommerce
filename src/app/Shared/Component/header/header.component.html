@@ -1,4 +1,4 @@
-<header class="header border-bottom">
+<header class="header border-bottom position-relative z-3">
   <div class="top-header bg-light py-1">
     <div class="container">
       <div class="row">
@@ -45,10 +45,10 @@
         </div>
         <div class="col-lg-3 col-sm-6 text-end ">
           <ul class="nav justify-content-end align-items-center position-relative z-3">
-            <li class="nav-item">
+            <li class="nav-item" *ngIf="isLogin">
               <a class="nav-link position-relative text-body-tertiary" title="favorites" >
-                <i data-feather="heart"></i>
-
+                <!-- <i data-feather="heart"></i> -->
+                <i class="fa-regular fa-heart fs-4"></i>
                 <!-- <i class="fa-regular fa-heart  fs-4">  </i> -->
                 <span class="badge bg-success position-absolute top-0 end-0 rounded-circle">5</span>
               </a>
@@ -69,10 +69,11 @@
               </ul>
             </li>
 
-            <li class="nav-item">
+            <li class="nav-item" *ngIf="isLogin">
               <a class="nav-link position-relative text-body-tertiary" title="card" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-                <i data-feather="shopping-bag"></i>
-
+                <!-- <i data-feather="shopping-bag"></i> -->
+                <!-- <i class="fa-solid fa-basket-shopping fs-4"></i> -->
+                <i class="fa-solid fa-cart-shopping fs-4"></i>
                 <!-- <i class="fa-solid fa-bag-shopping fs-4"></i> -->
                 <span class="badge bg-success position-absolute top-0 end-0 rounded-circle">5</span>
 

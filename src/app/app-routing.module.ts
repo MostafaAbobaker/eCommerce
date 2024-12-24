@@ -11,6 +11,10 @@ import { LoginComponent } from './Authorisation/Components/login/login.component
 import { RegisterComponent } from './Authorisation/Components/register/register.component';
 import { SignupOldSchoolComponent } from './Authorisation/Components/signup-old-school/signup-old-school.component';
 import { ForgotPasswordComponent } from './Authorisation/Components/forgot-password/forgot-password.component';
+import { VerifyCodeComponent } from './Authorisation/Components/verify-code/verify-code.component';
+import { ResetPasswordComponent } from './Authorisation/Components/reset-password/reset-password.component';
+import { authGuard } from './Authorisation/Guards/auth.guard';
+import { noAuthGuard } from './Authorisation/Guards/no-auth.guard';
 
 const routes: Routes = [
 
@@ -18,13 +22,16 @@ const routes: Routes = [
     {path:'', redirectTo: 'Home', pathMatch: 'full'},
     { path: 'Home', component:HomeComponent},
     { path: 'Brands', component:BrandsComponent},
-    { path: 'Cart', component:CartComponent},
-    { path: 'Categories', component:CategoriesComponent},
+    { path: 'Cart',canActivate:[authGuard], component:CartComponent},
+    { path: 'Categories',canActivate:[authGuard], component:CategoriesComponent},
     { path: 'Products', component:ProductsComponent},
-    { path: 'Login', component:LoginComponent},
-    { path: 'Register', component:RegisterComponent},
-    { path: 'Signup-oldSchool', component:SignupOldSchoolComponent},
-    { path: 'Forgot-Password', component:ForgotPasswordComponent},
+
+    { path: 'Login', canActivate:[noAuthGuard] , component:LoginComponent},
+    { path: 'Register', canActivate:[noAuthGuard], component:RegisterComponent},
+    { path: 'Signup-oldSchool', canActivate:[noAuthGuard], component:SignupOldSchoolComponent},
+    { path: 'Forgot-Password', canActivate:[noAuthGuard], component:ForgotPasswordComponent},
+    { path: 'Verify-Code', canActivate:[noAuthGuard], component:VerifyCodeComponent},
+    { path: 'Reset-Password', canActivate:[noAuthGuard], component:ResetPasswordComponent},
   ]},
 
   {path:'**' , component:NotFoundComponent}

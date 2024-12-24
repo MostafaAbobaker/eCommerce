@@ -1,0 +1,38 @@
+<section class="verify-code  ">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <div class="image">
+
+          <img src="./assets/images/fp-g.svg" alt="" class=" w-100">
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <h2 class="fw-bold">Verify Reset Code
+        </h2>
+        <p>Please enter the Verify Reset Code associated with your account and We will send Code In your email you a link to reset your password.
+        </p>
+        <div class="alert alert-danger" role="alert" *ngIf="apiErrorMassage">
+          {{apiErrorMassage}}
+        </div>
+        <form  class="form p-0 w-100" (ngSubmit)="verifyCode()" [formGroup]="verifyCodeForm">
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" formControlName="resetCode" id="floatingInput" placeholder="">
+            <label for="floatingInput">Verify  Code</label>
+            <div class="text-danger">
+              <small *ngIf="verifyCodeForm.get('resetCode')?.hasError('required') && verifyCodeForm.get('resetCode')?.touched">Verify Code is required</small>
+              <small *ngIf="verifyCodeForm.get('resetCode')?.hasError('minlength') && verifyCodeForm.get('resetCode')?.touched">Min length is 6 character</small>
+              <small *ngIf="verifyCodeForm.get('resetCode')?.hasError('maxlength') && verifyCodeForm.get('resetCode')?.touched">Max length is 6 character</small>
+            </div>
+          </div>
+
+          <button class="btn btn-success btn-lg w-100 mb-3"
+          [disabled]="verifyCodeForm.invalid"
+          >Verify Code</button>
+          <button class="btn btn-light btn-lg w-100 mb-3" routerLink="/">Back</button>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { ForgotPasswordComponent } from '../Components/forgot-password/forgot-password.component';
 
 @Injectable({
   providedIn: 'root'
@@ -22,5 +23,13 @@ export class AuthService {
     localStorage.removeItem('token');
     this.isLogged.next(false);
   }
-
+  forgotPassword(form:object): Observable<any> {
+    return this._http.post('https://ecommerce.routemisr.com/api/v1/auth/forgotPasswords', form)
+  }
+  verifyCode(form:object): Observable<any> {
+    return this._http.post('https://ecommerce.routemisr.com/api/v1/auth/verifyResetCode', form)
+  }
+  resetPassword(form:object):Observable<any> {
+    return this._http.put('https://ecommerce.routemisr.com/api/v1/auth/resetPassword', form)
+  }
 }
