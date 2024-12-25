@@ -8,6 +8,30 @@ a {
   cursor: pointer;
   text-decoration: none;
 }
+.transition-3s {
+  transition: all 0.3s ease-in-out;
+}
+.card {
+  &:hover {
+    border: 1px solid #0aad0a;
+    box-shadow: 0 5px 12px rgba(0, 0, 0, .12);
+    transition: .2s ease-in-out;
+
+  }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
 
 
 .ng-invalid.ng-touched {

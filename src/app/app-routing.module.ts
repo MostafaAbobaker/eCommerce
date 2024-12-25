@@ -15,6 +15,7 @@ import { VerifyCodeComponent } from './Authorisation/Components/verify-code/veri
 import { ResetPasswordComponent } from './Authorisation/Components/reset-password/reset-password.component';
 import { authGuard } from './Authorisation/Guards/auth.guard';
 import { noAuthGuard } from './Authorisation/Guards/no-auth.guard';
+import { ProductDetailsComponent } from './Component/product-details/product-details.component';
 
 const routes: Routes = [
 
@@ -25,6 +26,7 @@ const routes: Routes = [
     { path: 'Cart',canActivate:[authGuard], component:CartComponent},
     { path: 'Categories',canActivate:[authGuard], component:CategoriesComponent},
     { path: 'Products', component:ProductsComponent},
+    { path: 'Product/:id', component:ProductDetailsComponent},
 
     { path: 'Login', canActivate:[noAuthGuard] , component:LoginComponent},
     { path: 'Register', canActivate:[noAuthGuard], component:RegisterComponent},

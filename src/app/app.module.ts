@@ -22,6 +22,8 @@ import { HttpClientModule } from  '@angular/common/http';
 import { ForgotPasswordComponent } from './Authorisation/Components/forgot-password/forgot-password.component';
 import { VerifyCodeComponent } from './Authorisation/Components/verify-code/verify-code.component';
 import { ResetPasswordComponent } from './Authorisation/Components/reset-password/reset-password.component';
+import { ProductComponent } from './Component/product/product.component';
+import { ProductDetailsComponent } from './Component/product-details/product-details.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { ResetPasswordComponent } from './Authorisation/Components/reset-passwor
     SignupOldSchoolComponent,
     ForgotPasswordComponent,
     VerifyCodeComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    ProductComponent,
+    ProductDetailsComponent
   ],
   imports: [
     BrowserModule,

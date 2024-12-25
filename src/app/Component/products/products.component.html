@@ -1,1 +1,9 @@
-<p>products works!</p>
+<section class="products py-5">
+  <div class="container">
+    <div class="row g-3 row-cols-xl-5 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-1 ">
+      <div class="col transition-3s" *ngFor="let productItems of productsItems">
+        <app-product [product]="productItems"></app-product>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,13 +1,12 @@
-import {  AfterViewInit, Component, OnInit } from '@angular/core';
+import {   Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import * as feather from 'feather-icons';
 import { AuthService } from 'src/app/Authorisation/Services/auth.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements AfterViewInit ,OnInit{
+export class HeaderComponent implements OnInit{
 
 
   langName: string='English';
@@ -17,9 +16,7 @@ export class HeaderComponent implements AfterViewInit ,OnInit{
   ngOnInit(): void {
     this._authService.isLogged.subscribe((data)=>{this.isLogin = data})
   }
-  ngAfterViewInit(): void {
-    feather.replace();
-  }
+
   logOut() {
     this._authService.logout();
     this._router.navigate(['/Login']);
