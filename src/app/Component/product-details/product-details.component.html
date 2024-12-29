@@ -9,12 +9,32 @@
   <div class="container ">
 
     <div class="row">
-      <div class="col-lg-6">
+      <div class="col-lg-5">
         <div class="image">
-          <img [src]="productDetails?.images![0]" alt="" class="w-100 object-fit-contain">
+          <!-- <img [src]="productDetails?.images![0]" alt="" class="w-100 object-fit-contain"> -->
+
+          <div id="carouselExampleAutoplaying" class="carousel slide mb-5" data-bs-ride="carousel">
+
+            <div class="carousel-inner">
+              <div class="carousel-item " *ngFor="let image of productDetails?.images!; let i = index" [ngClass]="{'active': i == 0}">
+                <img [src]="image" class="d-block w-100 object-fit-contain" height="350">
+              </div>
+              <!-- <div class="carousel-item">
+                <img src="..." class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="..." class="d-block w-100" alt="...">
+              </div> -->
+            </div>
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleAutoplaying" *ngFor="let image of productDetails?.images!; let i = index" [attr.data-bs-slide-to]="i" [ngClass]="{'active': i == 0}" [attr.aria-current]="i == 0 ? true: false" [attr.aria-label]="i + 1"><img [src]="image" class="d-block w-100 " ></button>
+              <!-- <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button> -->
+            </div>
+          </div>
         </div>
       </div>
-      <div class="col-lg-6">
+      <div class="col-lg-7">
         <div class="content">
           <small class=" text-success">{{productDetails?.category?.name}}</small>
           <h1 class="fw-bold mb-0">{{productDetails?.title}}</h1>
@@ -24,6 +44,7 @@
                 'fa-solid ': star <= productDetails?.ratingsAverage!
               }"></i>
             </ng-container>
+            <span class="ms-2">{{productDetails?.ratingsAverage}}</span>
               <span class="ms-2 text-success">({{productDetails?.ratingsQuantity}} reviews)</span>
           </div>
           <div class="price ">
@@ -38,13 +59,13 @@
           </div>
           <div class="quantity mb-3 border-top  pt-3">
             <div class="input-group  input-group-sm w-25">
-              <button class="input-group-text" (click)="increaseQuantity() "><i class="fa-solid fa-plus"></i></button>
+              <button class="input-group-text" (click)="inputQuantity= inputQuantity + 1"><i class="fa-solid fa-plus"></i></button>
               <input type="number" [(ngModel)]="inputQuantity" class="form-control text-center fs" >
-              <button class="input-group-text" (click)=" decreaseQuantity()" [disabled]="inputQuantity == 1"><i class="fa-solid fa-minus"></i></button>
+              <button class="input-group-text" (click)=" inputQuantity= inputQuantity - 1" [disabled]="inputQuantity == 1"><i class="fa-solid fa-minus"></i></button>
             </div>
           </div>
           <div class="action border-bottom pb-3 mb-3">
-            <button class="btn btn-success me-2 px-4" ><i class="fa-solid fa-cart-arrow-down me-1"></i> Add to cart</button>
+            <button class="btn btn-success me-2 px-4" (click)="addCartItem(productDetails?._id!)"><i class="fa-solid fa-cart-arrow-down me-1"></i> Add to cart</button>
             <button class="favorite btn btn-outline-danger me-2"><i class="fa-solid fa-heart "></i></button>
           </div>
           <p>

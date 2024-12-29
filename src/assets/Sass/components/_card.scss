@@ -1,0 +1,9 @@
+.card {
+  .card-title {
+    color: #333;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+      color: $success;
+    }
+  }
+}

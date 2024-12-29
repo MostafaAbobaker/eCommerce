@@ -1,0 +1,17 @@
+.categories {
+  .owl-carousel {
+    .owl-nav {
+      position: absolute;
+      top: -85px;
+      inset-inline-end: 0;
+      div {
+        background-color: transparent !important;
+        color: #889397;
+        font-size: 28px;
+        &:hover {
+          color: $success;
+        }
+      }
+    }
+  }
+}

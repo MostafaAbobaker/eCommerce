@@ -1,71 +1,41 @@
-<div id="carouselExampleAutoplaying" class="carousel slide py-5 rounded"  data-bs-ride="carousel">
+<section class="home-page">
+  <app-home-main-carousel></app-home-main-carousel>
+  <app-categories></app-categories>
 
-  <div class="carousel-inner">
-    <div class="carousel-item active ">
-      <div class="carousel-caption text-start text-dark px-5 d-none d-md-block position-absolute w-50 start-0 top-50 translate-middle-y">
-        <h6 class="bg-warning d-table p-1 px-2 rounded"><small>Opening Sale Discount 50%</small></h6>
-        <h1 class="fw-bold">SuperMarket For Fresh Grocery</h1>
-        <p>Introduced a new model for online grocery shopping and convenient home delivery.</p>
-        <a href="" class="btn btn-dark">                           Shop Now <i data-feather="arrow-right" class="ms-2"></i>
-        </a>
-      </div>
-      <img src="./assets/images/slide-1.jpg" class="d-block w-100  h-100 rounded object-fit-cover" alt="...">
-    </div>
-    <div class="carousel-item ">
-      <div class="carousel-caption text-start text-dark px-5 d-none d-md-block position-absolute w-50 start-0 top-50 translate-middle-y">
-        <h6 class="bg-warning d-table p-1 px-2 rounded"><small>Free Shipping - orders over $100</small></h6>
-        <h1 class="fw-bold">Free Shipping on
-          <br>
-          orders over <span class="text-success ">$100</span>
-        </h1>
-        <p>Free Shipping to First-Time Customers Only, After promotions and discounts are applied.</p>
-        <a href="" class="btn btn-dark">                           Shop Now <i data-feather="arrow-right" class="ms-2"></i>
-        </a>
-      </div>
-      <img src="./assets/images/slide-2.jpg" class="d-block w-100 h-100 rounded object-fit-cover" alt="...">
-    </div>
+  <section class="advertisements py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="card position-relative">
+            <div class="card-body position-absolute start-0 top-50 translate-middle-y">
+              <h3 class="card-title mb-0 fw-bold">Fruits & Vegetables
+              </h3>
+              <p class="card-text ">Get Upto 30% Off
 
-  </div>
-  <div class="carousel-indicators position-relative">
-    <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide-to="1" aria-label="Slide 2"></button>
-  </div>
-</div>
-
-<app-categories></app-categories>
-
-<section class="advertisements py-5">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-6">
-        <div class="card position-relative">
-          <div class="card-body position-absolute start-0 top-50 translate-middle-y">
-            <h3 class="card-title mb-0 fw-bold">Fruits & Vegetables
-            </h3>
-            <p class="card-text ">Get Upto 30% Off
-
-            </p>
-            <a href="#" class="btn btn-dark">Shop Now</a>
+              </p>
+              <a href="#" class="btn btn-dark">Shop Now</a>
+            </div>
+            <img src="./assets/images/grocery-banner.png" alt="">
           </div>
-          <img src="./assets/images/grocery-banner.png" alt="">
         </div>
-      </div>
-      <div class="col-lg-6">
-        <div class="card position-relative">
-          <div class="card-body position-absolute start-0 top-50 translate-middle-y">
-            <h3 class="card-title mb-0 fw-bold">Freshly Baked Buns
+        <div class="col-lg-6">
+          <div class="card position-relative">
+            <div class="card-body position-absolute start-0 top-50 translate-middle-y">
+              <h3 class="card-title mb-0 fw-bold">Freshly Baked Buns
 
-            </h3>
-            <p class="card-text ">Get Upto 25% Off
-
+              </h3>
+              <p class="card-text ">Get Upto 25% Off
 
 
-            </p>
-            <a href="#" class="btn btn-dark">Shop Now</a>
+
+              </p>
+              <a href="#" class="btn btn-dark">Shop Now</a>
+            </div>
+            <img src="./assets/images/grocery-banner-2.jpg" alt="">
           </div>
-          <img src="./assets/images/grocery-banner-2.jpg" alt="">
         </div>
       </div>
     </div>
-  </div>
+  </section>
+<app-brands></app-brands>
 </section>

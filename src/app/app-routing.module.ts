@@ -16,6 +16,8 @@ import { ResetPasswordComponent } from './Authorisation/Components/reset-passwor
 import { authGuard } from './Authorisation/Guards/auth.guard';
 import { noAuthGuard } from './Authorisation/Guards/no-auth.guard';
 import { ProductDetailsComponent } from './Component/product-details/product-details.component';
+import { SpecificBrandComponent } from './Component/specific-brand/specific-brand.component';
+import { SpecificCatrgoriesComponent } from './Component/specific-catrgories/specific-catrgories.component';
 
 const routes: Routes = [
 
@@ -27,6 +29,8 @@ const routes: Routes = [
     { path: 'Categories',canActivate:[authGuard], component:CategoriesComponent},
     { path: 'Products', component:ProductsComponent},
     { path: 'Product/:id', component:ProductDetailsComponent},
+    { path: 'Specific-Brand/:id', component:SpecificBrandComponent},
+    { path: 'Specific-Catrgories/:id', component:SpecificCatrgoriesComponent},
 
     { path: 'Login', canActivate:[noAuthGuard] , component:LoginComponent},
     { path: 'Register', canActivate:[noAuthGuard], component:RegisterComponent},

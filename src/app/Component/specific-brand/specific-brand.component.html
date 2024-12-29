@@ -1,0 +1,26 @@
+<section class="specific-brand mb-5">
+  <div class="container" *ngIf="products.length == 0 || apiErrorMassage else elseTemplate">
+    <h1 class="py-5 my-5 text-center fw-bold">Not fond Item {{apiErrorMassage}}</h1>
+  </div>
+
+  <ng-template #elseTemplate>
+    <div class="container">
+      <nav aria-label="breadcrumb " class="py-3">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a class="text-success" routerLink="/">Home</a></li>
+          <li class="breadcrumb-item"><a class="text-success" routerLink="/Brands">Brands</a></li>
+          <li class="breadcrumb-item active" aria-current="page">{{products[0].brand.name}}</li>
+        </ol>
+      </nav>
+      <h3 class="mb-4 border-bottom pb-3">{{products[0].brand.name}}</h3>
+      <div class="row g-3 row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
+
+        <div class="col " *ngFor="let product of products">
+          <app-product [product]="product"></app-product>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+
+
+</section>

@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { IProduct } from 'src/app/interfaces/iproduct';
+import { CartService } from 'src/app/Services/cart.service';
 
 @Component({
   selector: 'app-product',
@@ -8,4 +9,15 @@ import { IProduct } from 'src/app/interfaces/iproduct';
 })
 export class ProductComponent {
   @Input() product!:IProduct
+
+  constructor(private _cartService:CartService) { }
+
+  addToCart(product_id:string){
+
+    this._cartService.addCartItem(product_id).subscribe({
+      next:(result) => {
+        console.log(result) },
+      error:(err) => {  console.log(err) }
+    });
+  }
 }

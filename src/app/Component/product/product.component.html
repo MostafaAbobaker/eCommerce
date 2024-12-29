@@ -1,6 +1,7 @@
-<a [routerLink]="['/Product/', product._id ]">
+
 
 <div class="card">
+  <a [routerLink]="['/Product/', product._id ]">
   <div class="image">
     <img
       [src]="product.imageCover"
@@ -8,11 +9,11 @@
       [alt]="product.title" height="250"
     />
 
-  </div>
+  </div></a>
   <div class="card-body">
     <small class=" text-secondary">{{ product.category.name }}</small>
-    <h6 class="card-title">{{ product.title.split(' ').slice(0,2).join(' ') }}</h6>
-    <div class="rating py-2">
+    <a [routerLink]="['/Product/', product._id ]"><h6 class="card-title ">{{ product.title.split(' ').slice(0,2).join(' ') }}</h6>
+    </a><div class="rating py-2">
       <ng-container>
         <i
           *ngFor="let star of [1, 2, 3, 4, 5]"
@@ -38,11 +39,11 @@
           >View Details</a
         > -->
         <button
-
+        (click)="addToCart(product._id)"
           class="btn btn-success btn-sm"
           ><i class="fa-solid fa-plus me-1"></i> Add</button>
       </div>
     </div>
   </div>
 </div>
-</a>
+

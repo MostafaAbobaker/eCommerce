@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,6 +25,11 @@ import { VerifyCodeComponent } from './Authorisation/Components/verify-code/veri
 import { ResetPasswordComponent } from './Authorisation/Components/reset-password/reset-password.component';
 import { ProductComponent } from './Component/product/product.component';
 import { ProductDetailsComponent } from './Component/product-details/product-details.component';
+import { HomeMainCarouselComponent } from './Component/home-main-carousel/home-main-carousel.component';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import { BrandItemComponent } from './Component/brand-item/brand-item.component';
+import { SpecificBrandComponent } from './Component/specific-brand/specific-brand.component';
+import { SpecificCatrgoriesComponent } from './Component/specific-catrgories/specific-catrgories.component';
 
 @NgModule({
   declarations: [
@@ -46,14 +52,20 @@ import { ProductDetailsComponent } from './Component/product-details/product-det
     VerifyCodeComponent,
     ResetPasswordComponent,
     ProductComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    HomeMainCarouselComponent,
+    BrandItemComponent,
+    SpecificBrandComponent,
+    SpecificCatrgoriesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    CarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]

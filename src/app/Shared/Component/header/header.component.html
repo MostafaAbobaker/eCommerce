@@ -39,7 +39,7 @@
           <div class="input-group ">
             <input type="search" class="form-control"  placeholder="Search for products">
             <span class="input-group-text">
-                            <i data-feather="search" style="width: 20px; height: 20px;"></i>
+              <i class="fa-solid fa-magnifying-glass"></i>
             </span>
           </div>
         </div>
@@ -103,34 +103,37 @@
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body">
-    <div class="card mb-3 border-0 border-bottom" >
+    <div class="card mb-3 border-0 border-bottom" *ngFor="let cartItem of cartItems?.products">
       <div class="row g-0 align-items-center">
         <div class="col-7 g-0 row m-0 align-items-center">
           <div class="col-md-3">
-            <img src="./assets/images/products/product-img-1.jpg" class="img-fluid rounded-start" alt="...">
+            <img [src]="cartItem.product.imageCover" class="img-fluid rounded-start" alt="...">
           </div>
           <div class="col-md-9">
             <div class="card-body">
-              <h6 class="card-title mb-0">Haldiram's Sev Bhujia</h6>
-              <p class="card-text text-secondary mb-0">.98 / lb</p>
-              <a  class="text-danger fs-6"><i data-feather="trash-2" class="me-1 " style="width: 16px;height: 16px;"></i> Remove</a>
+              <h6 class="card-title mb-0">{{cartItem.product.title.split(' ').slice(0,4).join(' ')}}</h6>
+              <!-- <p class="card-text text-secondary mb-0">.98 / lb</p> -->
+              <a  class="text-danger fs-6"><i class="fa-solid fa-trash-can"></i> Remove</a>
             </div>
           </div>
 
         </div>
         <div class="col-5 row m-0 g-0 align-items-center">
           <div class="col-6 text-center"><div class="input-group input-group-sm mb-3">
-            <span class="input-group-text"><i data-feather='plus' style="width: 15px; height: 15;"></i> </span>
+            <span class="input-group-text"><i class="fa-solid fa-plus"></i> </span>
             <input type="text" class="form-control text-center fw-bold" value="1" readonly disabled>
-            <span class="input-group-text"><i data-feather='minus' style="width: 15px; height: 15;"></i> </span>
+            <span class="input-group-text"><i class="fa-solid fa-minus"></i> </span>
           </div></div>
           <div class="col-6 text-center"><h5>$15.00</h5></div>
         </div>
       </div>
     </div>
+
+  </div>
+  <div class="offcanvas-footer p-3">
     <div class="d-flex justify-content-between">
-      <a href="" class="btn btn-success">Continue Shopping</a>
-      <a href="" class="btn btn-outline-secondary"> Rest Cart</a>
+      <a href="" class="btn btn-success" routerLink="/Cart">Continue Shopping</a>
+      <button class="btn btn-outline-secondary" (click)="deleteCart()"> Rest Cart</button>
     </div>
   </div>
 </div>

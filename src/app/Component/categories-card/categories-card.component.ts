@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { ICategory } from 'src/app/interfaces/icategory';
 
 @Component({
   selector: 'app-categories-card',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./categories-card.component.scss']
 })
 export class CategoriesCardComponent {
-
+@Input() category!: ICategory ;
 }

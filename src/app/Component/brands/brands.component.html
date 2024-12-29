@@ -1,1 +1,18 @@
-<p>brands works!</p>
+<section class="categories  pt-3 pb-5">
+  <div class="container">
+    <h4 class="fw-bold mb-4">Featured Brands
+
+    </h4>
+
+      <owl-carousel-o [options]="customOptions">
+
+        <ng-container *ngFor="let slide of brandsList">
+          <ng-template carouselSlide >
+            <app-brand-item [brand]="slide"></app-brand-item>
+          </ng-template>
+        </ng-container>
+
+      </owl-carousel-o>
+    </div>
+
+</section>
