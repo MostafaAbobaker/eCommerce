@@ -19,7 +19,7 @@ import { LoginComponent } from './Authorisation/Components/login/login.component
 import { RegisterComponent } from './Authorisation/Components/register/register.component';
 import { SignupOldSchoolComponent } from './Authorisation/Components/signup-old-school/signup-old-school.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from  '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from  '@angular/common/http';
 import { ForgotPasswordComponent } from './Authorisation/Components/forgot-password/forgot-password.component';
 import { VerifyCodeComponent } from './Authorisation/Components/verify-code/verify-code.component';
 import { ResetPasswordComponent } from './Authorisation/Components/reset-password/reset-password.component';
@@ -30,6 +30,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import { BrandItemComponent } from './Component/brand-item/brand-item.component';
 import { SpecificBrandComponent } from './Component/specific-brand/specific-brand.component';
 import { SpecificCatrgoriesComponent } from './Component/specific-catrgories/specific-catrgories.component';
+import { AuthInterceptor } from './Interceptor/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,9 @@ import { SpecificCatrgoriesComponent } from './Component/specific-catrgories/spe
     BrowserAnimationsModule,
     CarouselModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

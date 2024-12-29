@@ -1,7 +1,7 @@
 <section class="cart-page py-5">
   <ng-container *ngIf="cartItems?.products.length == 0 || cartItems == null; else elseTemplate">
     <div class="container" >
-      <h1 class="text-center">There is no fond Data </h1>
+      <h1 class="text-center">There is no fond Data ==> {{apiErrorMassage}}</h1>
     </div>
   </ng-container>
   <ng-template #elseTemplate>

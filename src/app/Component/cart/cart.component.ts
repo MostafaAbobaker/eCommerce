@@ -9,6 +9,7 @@ import { CartService } from 'src/app/Services/cart.service';
 })
 export class CartComponent implements OnInit {
   cartItems?: any;
+  apiErrorMassage: string = '';
   constructor(private _cartService:CartService) { }
   ngOnInit(): void {
     this._cartService.getCartItems().subscribe({
@@ -17,7 +18,7 @@ export class CartComponent implements OnInit {
         console.log(this.cartItems);
 
         },
-      error:(err) => {  console.log(err) }
+      error:(err) => {  console.log(err ); this.apiErrorMassage = err.error.message}
     });
 
   }

@@ -14,17 +14,10 @@ export class HeaderComponent implements OnInit{
   langName: string='English';
   isLogin: boolean = false;
 
-  constructor( private _authService:AuthService , private _router:Router , private _cartService:CartService) {}
+  constructor( private _authService:AuthService , private _router:Router ) {}
   ngOnInit(): void {
     this._authService.isLogged.subscribe((data)=>{this.isLogin = data})
-    this._cartService.getCartItems().subscribe({
-      next:(result) => {
-        this.cartItems = result.data;
-        console.log(this.cartItems);
 
-        },
-      error:(err) => {  console.log(err) }
-    });
   }
 
   logOut() {
@@ -32,13 +25,5 @@ export class HeaderComponent implements OnInit{
     this._router.navigate(['/Login']);
   }
 
-  deleteCart(){
-    this._cartService.deleteCart().subscribe({
-      next:(result) => {
-        console.log(result);
-        this.cartItems = null;
-      },
-      error:(err) => {  console.log(err) }
-    });
-  }
+
 }
