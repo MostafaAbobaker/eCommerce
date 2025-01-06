@@ -1,18 +1,22 @@
 
 
-<div class="card">
+<div class="card position-relative">
+  <div class="favorite position-absolute top-0 start-0 m-2" (click)="addWish(product._id ) ">
+    <i class=" fa-heart fs-4 " [class]="compareItemWishlistInProduct(product._id)? 'fa-solid text-danger': 'fa-regular text-secondary' "></i>
+  </div>
   <a [routerLink]="['/Product/', product._id ]">
-  <div class="image">
+  <div class="image pt-2">
     <img
       [src]="product.imageCover"
-      class="card-img-top w-100 object-fit-contain"
+      class="card-img-top w-100 object-fit-contain  rounded-2"
       [alt]="product.title" height="250"
     />
 
   </div></a>
   <div class="card-body">
     <small class=" text-secondary">{{ product.category.name }}</small>
-    <a [routerLink]="['/Product/', product._id ]"><h6 class="card-title ">{{ product.title.split(' ').slice(0,2).join(' ') }}</h6>
+    <a [routerLink]="['/Product/', product._id ]">
+      <h6 class="card-title ">{{ product.title | sliceTitle : 2 }}</h6>
     </a><div class="rating py-2">
       <ng-container>
         <i

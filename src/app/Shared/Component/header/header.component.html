@@ -37,7 +37,10 @@
         </div>
         <div class="col-lg-6 d-none d-lg-block">
           <div class="input-group ">
-            <input type="search" class="form-control"  placeholder="Search for products">
+            <input type="search" class="form-control"  placeholder="Search for products"
+             name="search" >
+            <!-- <input type="search" class="form-control"  placeholder="Search for products"
+            [(ngModel)]="searchInput" name="search" > -->
             <span class="input-group-text">
               <i class="fa-solid fa-magnifying-glass"></i>
             </span>
@@ -46,11 +49,11 @@
         <div class="col-lg-3 col-sm-6 text-end ">
           <ul class="nav justify-content-end align-items-center position-relative z-3">
             <li class="nav-item" *ngIf="isLogin">
-              <a class="nav-link position-relative text-body-tertiary" title="favorites" >
+              <a class="nav-link position-relative text-body-tertiary" title="favorites" routerLink="wish-list">
                 <!-- <i data-feather="heart"></i> -->
-                <i class="fa-regular fa-heart fs-4"></i>
+                <i class="fas fa-heart fs-4"></i>
                 <!-- <i class="fa-regular fa-heart  fs-4">  </i> -->
-                <span class="badge bg-success position-absolute top-0 end-0 rounded-circle">5</span>
+                <span class="badge bg-success position-absolute top-0 end-0 rounded-circle">{{WishlistsNum}}</span>
               </a>
             </li>
             <li class="nav-item" *ngIf="!isLogin">
@@ -63,19 +66,17 @@
                 <img src="./assets/images/man.png" alt="" class="rounded-circle border border-success border-2 object-fit-cover" width="40" height="40">
               </a>
               <ul class="dropdown-menu z-3">
-                <li><a class="dropdown-item" >Action</a></li>
-                <li><a class="dropdown-item" >Another action</a></li>
                 <li><a class="dropdown-item" (click)="logOut()">Sign Out</a></li>
               </ul>
             </li>
 
             <li class="nav-item" *ngIf="isLogin">
-              <a class="nav-link position-relative text-body-tertiary" title="card" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+              <a class="nav-link position-relative text-body-tertiary"   title="card" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
                 <!-- <i data-feather="shopping-bag"></i> -->
                 <!-- <i class="fa-solid fa-basket-shopping fs-4"></i> -->
                 <i class="fa-solid fa-cart-shopping fs-4"></i>
                 <!-- <i class="fa-solid fa-bag-shopping fs-4"></i> -->
-                <span class="badge bg-success position-absolute top-0 end-0 rounded-circle">5</span>
+                <span class="badge bg-success position-absolute top-0 end-0 rounded-circle">{{cartItemsNum}}</span>
 
               </a>
             </li>
@@ -103,7 +104,7 @@
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body">
-    <div class="card mb-3 border-0 border-bottom" *ngFor="let cartItem of cartItems?.products">
+    <div class="card mb-3 border-0 border-bottom" *ngFor="let cartItem of cartItems">
       <div class="row g-0 align-items-center">
         <div class="col-7 g-0 row m-0 align-items-center">
           <div class="col-md-3">
@@ -111,20 +112,16 @@
           </div>
           <div class="col-md-9">
             <div class="card-body">
-              <h6 class="card-title mb-0">{{cartItem.product.title.split(' ').slice(0,4).join(' ')}}</h6>
+              <h6 class="card-title mb-0">{{cartItem.product.title |sliceTitle : 3}}</h6>
               <!-- <p class="card-text text-secondary mb-0">.98 / lb</p> -->
-              <a  class="text-danger fs-6"><i class="fa-solid fa-trash-can"></i> Remove</a>
+              <a  class="text-danger fs-6" (click)="deleteItemCart(cartItem.product._id)"><i class="fa-solid fa-trash-can"></i> Remove</a>
             </div>
           </div>
 
         </div>
-        <div class="col-5 row m-0 g-0 align-items-center">
-          <div class="col-6 text-center"><div class="input-group input-group-sm mb-3">
-            <span class="input-group-text"><i class="fa-solid fa-plus"></i> </span>
-            <input type="text" class="form-control text-center fw-bold" value="1" readonly disabled>
-            <span class="input-group-text"><i class="fa-solid fa-minus"></i> </span>
-          </div></div>
-          <div class="col-6 text-center"><h5>$15.00</h5></div>
+        <div class="col-5 text-end">
+
+          <div class=" "><h5>$15.00</h5></div>
         </div>
       </div>
     </div>
@@ -132,8 +129,8 @@
   </div>
   <div class="offcanvas-footer p-3">
     <div class="d-flex justify-content-between">
-      <a href="" class="btn btn-success" routerLink="/Cart">Continue Shopping</a>
-      <button class="btn btn-outline-secondary" > Rest Cart</button>
+      <a href="" class="btn btn-success" routerLink="Cart" data-bs-dismiss="offcanvas" aria-label="Close">Continue Shopping</a>
+      <button class="btn btn-outline-danger" (click)="clearCart()"><i class="fa-solid fa-trash-can me-2"></i> Rest Cart</button>
     </div>
   </div>
 </div>

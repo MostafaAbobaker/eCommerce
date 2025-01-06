@@ -31,6 +31,12 @@ import { BrandItemComponent } from './Component/brand-item/brand-item.component'
 import { SpecificBrandComponent } from './Component/specific-brand/specific-brand.component';
 import { SpecificCatrgoriesComponent } from './Component/specific-catrgories/specific-catrgories.component';
 import { AuthInterceptor } from './Interceptor/auth.interceptor';
+import { ShippingAddressComponent } from './Component/shipping-address/shipping-address.component';
+import { AllordersComponent } from './Component/allorders/allorders.component';
+import { LoadingComponent } from './Shared/Component/loading/loading.component';
+import { SliceTitlePipe } from './Pipes/slice-title.pipe';
+import { WishListComponent } from './Component/wish-list/wish-list.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -57,7 +63,12 @@ import { AuthInterceptor } from './Interceptor/auth.interceptor';
     HomeMainCarouselComponent,
     BrandItemComponent,
     SpecificBrandComponent,
-    SpecificCatrgoriesComponent
+    SpecificCatrgoriesComponent,
+    ShippingAddressComponent,
+    AllordersComponent,
+    LoadingComponent,
+    SliceTitlePipe,
+    WishListComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +77,8 @@ import { AuthInterceptor } from './Interceptor/auth.interceptor';
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    CarouselModule
+    CarouselModule,
+    ToastrModule.forRoot(),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

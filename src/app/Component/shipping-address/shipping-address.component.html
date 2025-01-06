@@ -1,0 +1,31 @@
+<section class="shipping-address">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <div class="image">
+          <img src="./assets/images/2672252.jpg" alt="" class=" w-100" >
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <h2 class="fw-bold">New Shipping Address        </h2>
+        <p>Add new shipping address for your order delivery.    </p>
+        <form (ngSubmit)="ShippingAddress()" [formGroup]="ShippingAddressForm">
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="Details" formControlName="details" placeholder=" ">
+            <label for="Details">Details</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="phone" formControlName="phone" placeholder=" ">
+            <label for="phone">Phone</label>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="city" formControlName="city" placeholder=" ">
+            <label for="city">City</label>
+          </div>
+
+          <button class="btn btn-success btn-lg w-100">Online Payment</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

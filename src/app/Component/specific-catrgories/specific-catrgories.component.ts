@@ -13,12 +13,14 @@ export class SpecificCatrgoriesComponent implements OnInit {
   products: IProduct[] = [];
   apiErrorMassage: string = '';
   constructor(private _activatedRoute:ActivatedRoute, private _productsService:ProductsService) { }
+
   ngOnInit(): void {
     this._activatedRoute.paramMap.subscribe(params => {
       console.log(params.get('id'))
       this.categoryId = params.get('id')
     });
-    if(this.categoryId!= null) {
+
+    if(this.categoryId) {
       this._productsService.getSpecificCategory(this.categoryId).subscribe({
         next:(result) => {
           console.log(result)
@@ -31,4 +33,5 @@ export class SpecificCatrgoriesComponent implements OnInit {
       })
     }
   }
+
 }

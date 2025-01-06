@@ -18,6 +18,9 @@ import { noAuthGuard } from './Authorisation/Guards/no-auth.guard';
 import { ProductDetailsComponent } from './Component/product-details/product-details.component';
 import { SpecificBrandComponent } from './Component/specific-brand/specific-brand.component';
 import { SpecificCatrgoriesComponent } from './Component/specific-catrgories/specific-catrgories.component';
+import { ShippingAddressComponent } from './Component/shipping-address/shipping-address.component';
+import { AllordersComponent } from './Component/allorders/allorders.component';
+import { WishListComponent } from './Component/wish-list/wish-list.component';
 
 const routes: Routes = [
 
@@ -31,6 +34,9 @@ const routes: Routes = [
     { path: 'Product/:id', component:ProductDetailsComponent},
     { path: 'Specific-Brand/:id', component:SpecificBrandComponent},
     { path: 'Specific-Catrgories/:id', component:SpecificCatrgoriesComponent},
+    { path: 'shipping-address/:id', component:ShippingAddressComponent},
+    { path: 'allorders', component:AllordersComponent},
+    { path: 'wish-list', component:WishListComponent},
 
     { path: 'Login', canActivate:[noAuthGuard] , component:LoginComponent},
     { path: 'Register', canActivate:[noAuthGuard], component:RegisterComponent},
