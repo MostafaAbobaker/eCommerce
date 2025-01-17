@@ -10,17 +10,19 @@
         <h2 class="fw-bold">Sign in to FreshCart        </h2>
         <p>Welcome back to FreshCart! Enter your email to get started.
         </p>
+        <p>Can You Test For example user name : {{emailExample}} , password : Test123
+        </p>
         <div class="alert alert-danger" role="alert" *ngIf="apiErrorMassage">
           {{apiErrorMassage}}
         </div>
         <form  class="form p-0 w-100" (ngSubmit)="login()" [formGroup]="loginForm">
           <div class="form-floating mb-3">
-            <input type="email" class="form-control" formControlName="email" id="floatingInput" placeholder="name@example.com">
+            <input type="email" class="form-control" formControlName="email" id="floatingInput" placeholder="For example : meyorat307@ronete.com">
             <label for="floatingInput">Email address</label>
 
           </div>
           <div class="form-floating mb-3">
-            <input [type]="typePassword? 'password': 'text'" formControlName="password" class="form-control" id="floatingPassword" placeholder="Password">
+            <input [type]="typePassword? 'password': 'text'" formControlName="password" class="form-control" id="floatingPassword" placeholder="For example : Test123">
             <label for="floatingPassword">Password</label>
             <a class="text-dark position-absolute end-0 top-50 translate-middle-y me-2"
             (click)="typePassword = !typePassword">

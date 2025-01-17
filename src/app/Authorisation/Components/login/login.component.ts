@@ -13,6 +13,8 @@ import { WishlistService } from 'src/app/Services/wishlist.service';
 })
 export class LoginComponent implements  OnDestroy {
 
+  emailExample= 'meyorat307@ronete.com'
+
   typePassword:boolean = true;
 
   apiErrorMassage:string='';
