@@ -37,6 +37,7 @@ import { LoadingComponent } from './Shared/Component/loading/loading.component';
 import { SliceTitlePipe } from './Pipes/slice-title.pipe';
 import { WishListComponent } from './Component/wish-list/wish-list.component';
 import { ToastrModule } from 'ngx-toastr';
+import { FilterPipe } from './Pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import { ToastrModule } from 'ngx-toastr';
     AllordersComponent,
     LoadingComponent,
     SliceTitlePipe,
-    WishListComponent
+    WishListComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

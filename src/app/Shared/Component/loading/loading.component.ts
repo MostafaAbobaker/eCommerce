@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { BehaviorSubject, Subject } from 'rxjs';
+import {  Subject } from 'rxjs';
 import { LoadingService } from '../../Services/loading.service';
 
 @Component({

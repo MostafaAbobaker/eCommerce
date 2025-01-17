@@ -1,11 +1,15 @@
 @media (min-width:990px)  {
   .navbar-list-top {
-    position: relative;
+    position: sticky !important;
+    top: 0 !important;
+    bottom: unset !important;
     visibility: visible;
     width: 100% !important;
     transform: translateX(0) !important;
     flex-direction: row;
-    z-index: unset;
+    z-index: 9;
+    border: none !important;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
     .offcanvas-body {
       width: 100%;
       padding: 0;
@@ -14,8 +18,9 @@
         flex-direction: row;
         align-items: center;
         gap: 15px;
-        padding: 0;
-        padding-bottom: 15px;
+        padding: 10px 0 ;
+
+        // padding-bottom: 15px;
        .nav-item {
          .nav-link {
             color: #333;

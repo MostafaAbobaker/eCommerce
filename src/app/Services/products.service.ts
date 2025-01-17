@@ -1,13 +1,22 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductsService {
+  /* textInputSearch = new BehaviorSubject<string>('') */
+
+
+  private searchText = new BehaviorSubject<string>('');
+  currentSearchText = this.searchText.asObservable();
 
   constructor(private _http: HttpClient) { }
+
+
+  updateSearchText(text: string) { this.searchText.next(text);
+  }
 
   getProducts():Observable<any> {
     return this._http.get('https://ecommerce.routemisr.com/api/v1/products');

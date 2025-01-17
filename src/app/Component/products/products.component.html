@@ -1,9 +1,38 @@
 <section class="products py-5">
   <div class="container">
-    <div class="row g-3 row-cols-xl-5 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-1 ">
-      <div class="col transition-3s" *ngFor="let productItems of productsItems">
+    <div
+      class="row g-3 row-cols-xl-5 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 row-cols-1 transition-3s"
+    >
+      <div
+        class="col transition-3s"
+        *ngFor="let productItems of productsItems | filter : searchInput"
+      >
         <app-product [product]="productItems"></app-product>
       </div>
+    </div>
+    <div class="row justify-content-center">
+      <!-- Pagination controls -->
+      <!-- <nav>
+        <ul class="pagination">
+          <li class="page-item" [class.disabled]="currentPage === 1">
+            <a class="page-link" (click)="onPageChange(currentPage - 1)"
+              >Previous</a
+            >
+          </li>
+          <li
+            class="page-item"
+            *ngFor="let page of [].constructor(totalPages); let i = index"
+            [class.active]="currentPage === i + 1"
+          >
+            <a class="page-link" (click)="onPageChange(i + 1)">{{ i + 1 }}</a>
+          </li>
+          <li class="page-item" [class.disabled]="currentPage === totalPages">
+            <a class="page-link" (click)="onPageChange(currentPage + 1)"
+              >Next</a
+            >
+          </li>
+        </ul>
+      </nav> -->
     </div>
   </div>
 </section>

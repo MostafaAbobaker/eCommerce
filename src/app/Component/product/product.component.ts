@@ -31,6 +31,7 @@ this._wishlistService.WishlistProducts.subscribe((productId)=> this.WishlistProd
         });
 
         this._cartService.CartItemNumber.next(result.numOfCartItems);
+        this._cartService.showCart();
         // this._wishlistService.WishlistNumber.next(result.data.length)
 
       },

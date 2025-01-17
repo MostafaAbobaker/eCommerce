@@ -11,14 +11,14 @@ export class WishlistService {
 
   WishlistProducts = new BehaviorSubject<string []>([]);
   constructor(private _http:HttpClient) {
+    this.showWishlist()
 
+  }
+  showWishlist() {
     this.getWishlistItems().subscribe({
       next:(result: any) => {
-        this.WishlistNumber.next(result.count);
-        console.log('Map Wish List',(result.data as IProduct []).map((product)=>product._id));
         this.WishlistProducts.next((result.data as IProduct []).map((product)=>product._id));
         this.WishlistNumber.next((result.data as IProduct []).length);
-        // this.WishlistNumber.next(result.count);
       }
     })
   }

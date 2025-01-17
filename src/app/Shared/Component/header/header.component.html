@@ -1,4 +1,4 @@
-<header class="header border-bottom position-relative z-3">
+<header class="header position-relative ">
   <div class="top-header bg-light py-1">
     <div class="container">
       <div class="row">
@@ -37,17 +37,17 @@
         </div>
         <div class="col-lg-6 d-none d-lg-block">
           <div class="input-group ">
-            <input type="search" class="form-control"  placeholder="Search for products"
-             name="search" >
             <!-- <input type="search" class="form-control"  placeholder="Search for products"
-            [(ngModel)]="searchInput" name="search" > -->
+             name="search" > -->
+            <input type="search" class="form-control"  placeholder="Search for products"
+            [(ngModel)]="searchInput" name="search" (ngModelChange)="onSearchChange()">
             <span class="input-group-text">
               <i class="fa-solid fa-magnifying-glass"></i>
             </span>
           </div>
         </div>
         <div class="col-lg-3 col-sm-6 text-end ">
-          <ul class="nav justify-content-end align-items-center position-relative z-3">
+          <ul class="nav justify-content-end align-items-center position-sticky z-3">
             <li class="nav-item" *ngIf="isLogin">
               <a class="nav-link position-relative text-body-tertiary" title="favorites" routerLink="wish-list">
                 <!-- <i data-feather="heart"></i> -->
@@ -63,9 +63,9 @@
             </li>
             <li class="nav-item dropdown" *ngIf="isLogin">
               <a class="nav-link text-body-tertiary rounded-circle " title="User Name" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="./assets/images/man.png" alt="" class="rounded-circle border border-success border-2 object-fit-cover" width="40" height="40">
+                <img src="./assets/images/man.png" alt="" class="rounded-circle border border-success border-2 object-fit-cover" width="30" height="30">
               </a>
-              <ul class="dropdown-menu z-3">
+              <ul class="dropdown-menu">
                 <li><a class="dropdown-item" (click)="logOut()">Sign Out</a></li>
               </ul>
             </li>
@@ -82,8 +82,7 @@
             </li>
             <li class="nav-item d-block d-lg-none">
               <a class="nav-link  text-success" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
-                <i data-feather="sidebar"></i>
-
+                <i class="fa-solid fa-bars-staggered fs-4"></i>
               </a>
             </li>
 
@@ -92,10 +91,10 @@
       </div>
     </div>
   </div>
-  <app-navbar></app-navbar>
+
 
 </header>
-
+<app-navbar></app-navbar>
 
 <div class="offcanvas  offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel" style="width: 600px;">
   <div class="offcanvas-header border-bottom">

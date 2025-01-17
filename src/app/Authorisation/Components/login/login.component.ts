@@ -3,6 +3,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../Services/auth.service';
 import { Router } from '@angular/router';
 import { Observable, Subject, Subscription } from 'rxjs';
+import { CartService } from 'src/app/Services/cart.service';
+import { WishlistService } from 'src/app/Services/wishlist.service';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +19,10 @@ export class LoginComponent implements  OnDestroy {
 
   destroyLogin?: Subscription;
 
-  constructor(private _authService:AuthService, private _router: Router) {}
+  constructor(private _authService:AuthService,
+              private _router: Router,
+              private _cartService:CartService,
+              private _wishListService:WishlistService) {}
 
 
   loginForm:FormGroup = new FormGroup({
@@ -32,7 +37,9 @@ export class LoginComponent implements  OnDestroy {
         next:(data) => {console.log(data);
           this._router.navigate(['/Home']);
           this._authService.isLogged.next(true);
-          localStorage.setItem('token', data.token)
+          localStorage.setItem('token', data.token);
+          this._cartService.showCart();
+          this._wishListService.showWishlist();
         },
         error:(err) => {console.log(err.error.message);
           this.apiErrorMassage = err.error.message;

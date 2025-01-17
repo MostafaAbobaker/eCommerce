@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { IProduct } from '../interfaces/iproduct';
 
 @Injectable({
   providedIn: 'root'
@@ -8,16 +9,21 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class CartService {
 
   CartItemNumber= new BehaviorSubject<number>(0);
-
+  CartItemProduct= new BehaviorSubject<IProduct[]>([])
   constructor(private _http:HttpClient) {
+    this.showCart()
 
+  }
+
+  showCart() {
     this.getCartItems().subscribe({
       next:(result) => {
+        this.CartItemProduct.next(result.data.products);
+
         this.CartItemNumber.next(result.numOfCartItems);
       }
     })
   }
-
   getCartItems(): Observable<any> {
     return this._http.get('https://ecommerce.routemisr.com/api/v1/cart')
   }
@@ -46,4 +52,6 @@ export class CartService {
       {shippingAddress: form}
     )
   }
+
+
 }
